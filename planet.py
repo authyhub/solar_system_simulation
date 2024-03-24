@@ -1,6 +1,10 @@
 from constants import WIDTH, HEIGHT, pg, AU
 import math
 
+pg.init()
+
+FONT = pg.font.SysFont("comicsans", 20)
+
 
 class Planet:
     AU = AU  # average distance of the earth in meters from sun astronomical unit
@@ -40,8 +44,8 @@ class Planet:
         return self.name.title()
 
     def draw(self, win):
-        x = self.x * self.SCALE + WIDTH / 2
-        y = self.y * self.SCALE + HEIGHT / 2
+        x = self.x * Planet.SCALE + WIDTH / 2
+        y = self.y * Planet.SCALE + HEIGHT / 2
         updated_points = [
             (x * Planet.SCALE + WIDTH / 2, y * Planet.SCALE + HEIGHT / 2)
             for (x, y) in self.orbit
@@ -51,6 +55,16 @@ class Planet:
             pg.draw.lines(win, self.color, False, updated_points, 1)
 
         pg.draw.circle(win, self.color, (x, y), self.radius)
+        if not self.is_sun:
+            dist_text = FONT.render(
+                f"{self.distance_from_sun/1000:1.3e} km",
+                1,
+                (255, 255, 255),
+            )
+            win.blit(
+                dist_text,
+                (x - dist_text.get_width() / 2, y - dist_text.get_height() * 1.4),
+            )
 
     def attraction(self, other):
 
@@ -62,8 +76,9 @@ class Planet:
         x_dist = ox - self.x
         y_dist = oy - self.y
         dist = math.sqrt(x_dist**2 + y_dist**2)
+
         if other.is_sun:
-            self.distance_from_sun == dist
+            self.distance_from_sun = dist
         force = Planet.G * self.mass * other.mass / dist**2
         theta = math.atan2(y_dist, x_dist)
         fx = force * math.cos(theta)
