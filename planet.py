@@ -42,6 +42,14 @@ class Planet:
     def draw(self, win):
         x = self.x * self.SCALE + WIDTH / 2
         y = self.y * self.SCALE + HEIGHT / 2
+        updated_points = [
+            (x * Planet.SCALE + WIDTH / 2, y * Planet.SCALE + HEIGHT / 2)
+            for (x, y) in self.orbit
+        ]
+
+        if len(updated_points) > 2:
+            pg.draw.lines(win, self.color, False, updated_points, 1)
+
         pg.draw.circle(win, self.color, (x, y), self.radius)
 
     def attraction(self, other):
