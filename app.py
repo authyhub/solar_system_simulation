@@ -12,8 +12,9 @@ def main():
     bodies = [
         Planet(
             body["name"],
-            AU * body["au_from_sun"],
+            -1 * AU * body["au_from_sun"],
             0,
+            body["v_ave"],
             body["radius"],
             body["mass"],
             body["color"],
@@ -25,7 +26,7 @@ def main():
     print(bodies)
 
     for body in bodies:
-        print(body.x)
+        print(body.v)
 
     simulate = True
     clock = pg.time.Clock()
