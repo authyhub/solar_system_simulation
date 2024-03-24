@@ -1,4 +1,3 @@
-import math
 from planet import Planet
 from constants import WIDTH, HEIGHT, pg, solar_system, AU
 
