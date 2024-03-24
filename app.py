@@ -1,10 +1,9 @@
 import pygame as pg
 import math
 from planet import Planet
-
+from constants import WIDTH, HEIGHT
 
 pg.init()
-WIDTH, HEIGHT = 1000, 1000
 WIN = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Planet Simulation")
 
