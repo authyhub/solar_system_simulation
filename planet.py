@@ -13,6 +13,7 @@ class Planet:
         name: str,
         x: float,
         y: float,
+        v: float,
         radius: float,
         mass: float,
         color: tuple = (255, 255, 255),
@@ -27,7 +28,7 @@ class Planet:
 
         self.orbit = []
         self.u = 0  # x component of velcity
-        self.v = 0  # y component of velocity
+        self.v = v  # y component of velocity
 
         self.is_sun = is_sun
         self.distance_from_sun = 0
@@ -36,7 +37,7 @@ class Planet:
         return f"<{self.name.upper()}>"
 
     def __repr__(self):
-        return f"<{self.name.upper()}>"
+        return self.name.title()
 
     def draw(self, win):
         x = self.x * self.SCALE + WIDTH / 2
@@ -71,8 +72,8 @@ class Planet:
             total_fx += fx
             total_fy += fy
 
-        self.u = total_fx / self.mass * Planet.TIMESTEP
-        self.v = total_fy / self.mass * Planet.TIMESTEP
+        self.u += total_fx / self.mass * Planet.TIMESTEP
+        self.v += total_fy / self.mass * Planet.TIMESTEP
 
         self.x += self.u * Planet.TIMESTEP
         self.y += self.v * Planet.TIMESTEP
