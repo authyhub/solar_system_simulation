@@ -1,5 +1,6 @@
 import pygame as pg
 import math
+from planet import Planet
 
 
 pg.init()
@@ -11,6 +12,10 @@ BGC = (0, 10, 55)
 
 
 def main():
+    sun = Planet("sun", 0, 0, 50, 0, (225, 225, 0))
+    earth = Planet("earth", 0, 0, 10, 0, (100, 150, 200))
+    print(earth, sun)
+
     simulate = True
     clock = pg.time.Clock()
     while simulate:
