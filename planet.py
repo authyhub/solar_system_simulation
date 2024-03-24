@@ -1,11 +1,10 @@
-import pygame as pg
-from constants import WIDTH, HEIGHT
+from constants import WIDTH, HEIGHT, pg, AU
 
 
 class Planet:
-    AU = 1.495978707e11  # average distance of the earth in meters from sun astronomical unit
+    AU = AU  # average distance of the earth in meters from sun astronomical unit
     G = 6.67430e-11  # Gravitational constant
-    SCALE = 350 / AU
+    SCALE = 300 / AU
     TIMESTEP = 60 * 60 * 24  # 1 DAY
 
     def __init__(
@@ -16,6 +15,7 @@ class Planet:
         radius: float,
         mass: float,
         color: tuple = (255, 255, 255),
+        is_sun: bool = False,
     ):
         self.name = name
         self.x = x
@@ -28,10 +28,13 @@ class Planet:
         self.u = 0  # x component of velcity
         self.v = 0  # y component of velocity
 
-        self.is_sun = False
+        self.is_sun = is_sun
         self.distance_from_sun = 0
 
     def __str__(self):
+        return f"<{self.name.upper()}>"
+
+    def __repr__(self):
         return f"<{self.name.upper()}>"
 
     def draw(self, win):
