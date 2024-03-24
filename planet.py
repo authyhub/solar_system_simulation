@@ -70,10 +70,13 @@ class Planet:
             fx, fy = self.attraction(planet)
             total_fx += fx
             total_fy += fy
+
         self.u = total_fx / self.mass * Planet.TIMESTEP
         self.v = total_fy / self.mass * Planet.TIMESTEP
+
         self.x += self.u * Planet.TIMESTEP
         self.y += self.v * Planet.TIMESTEP
+
         self.orbit.append((self.x, self.y))
 
 

@@ -36,6 +36,7 @@ def main():
             if event.type == pg.QUIT:
                 simulate = False
         for body in bodies:
+            body.update_position(bodies)
             body.draw(WIN)
         pg.display.update()
     pg.quit()
