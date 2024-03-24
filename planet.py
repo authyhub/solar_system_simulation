@@ -44,6 +44,7 @@ class Planet:
         pg.draw.circle(win, self.color, (x, y), self.radius)
 
     def attraction(self, other):
+
         if not isinstance(other, Planet):
             raise TypeError(
                 "Invalid type, the object should be an instance of class Planet"
@@ -59,6 +60,21 @@ class Planet:
         fx = force * math.cos(theta)
         fy = force * math.sin(theta)
         return fx, fy
+
+    def update_position(self, planets):
+        total_fx, total_fy = 0, 0
+
+        for planet in planets:
+            if self == planet:
+                continue
+            fx, fy = self.attraction(planet)
+            total_fx += fx
+            total_fy += fy
+        self.u = total_fx / self.mass * Planet.TIMESTEP
+        self.v = total_fy / self.mass * Planet.TIMESTEP
+        self.x += self.u * Planet.TIMESTEP
+        self.y += self.v * Planet.TIMESTEP
+        self.orbit.append((self.x, self.y))
 
 
 def main():
