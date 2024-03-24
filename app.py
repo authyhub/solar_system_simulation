@@ -1,29 +1,43 @@
-import pygame as pg
 import math
 from planet import Planet
-from constants import WIDTH, HEIGHT
+from constants import WIDTH, HEIGHT, pg, solar_system, AU
 
 pg.init()
 WIN = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("Planet Simulation")
 
-BGC = (0, 10, 55)
-
 
 def main():
-    sun = Planet("sun", 0, 0, 50, 0, (225, 225, 0))
-    earth = Planet("earth", 0, 0, 10, 0, (100, 150, 200))
-    print(earth, sun)
+    BGC = (0, 10, 55)
+    bodies = [
+        Planet(
+            body["name"],
+            AU * body["au_from_sun"],
+            0,
+            body["radius"],
+            body["mass"],
+            body["color"],
+            body["is_sun"],
+        )
+        for body in solar_system
+    ]
+
+    print(bodies)
+
+    for body in bodies:
+        print(body.x)
 
     simulate = True
     clock = pg.time.Clock()
     while simulate:
         clock.tick(60)
         WIN.fill(BGC)
-        pg.display.update()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 simulate = False
+        for body in bodies:
+            body.draw(WIN)
+        pg.display.update()
     pg.quit()
 
 
