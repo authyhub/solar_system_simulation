@@ -1,4 +1,5 @@
 from constants import WIDTH, HEIGHT, pg, AU
+import math
 
 
 class Planet:
@@ -41,6 +42,23 @@ class Planet:
         x = self.x * self.SCALE + WIDTH / 2
         y = self.y * self.SCALE + HEIGHT / 2
         pg.draw.circle(win, self.color, (x, y), self.radius)
+
+    def attraction(self, other):
+        if not isinstance(other, Planet):
+            raise TypeError(
+                "Invalid type, the object should be an instance of class Planet"
+            )
+        ox, oy = other.x, other.y
+        x_dist = ox - self.x
+        y_dist = oy - self.y
+        dist = math.sqrt(x_dist**2 + y_dist**2)
+        if other.is_sun:
+            self.distance_from_sun == dist
+        force = Planet.G * self.mass * other.mass / dist**2
+        theta = math.atan2(y_dist, x_dist)
+        fx = force * math.cos(theta)
+        fy = force * math.sin(theta)
+        return fx, fy
 
 
 def main():
