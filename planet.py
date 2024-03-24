@@ -2,6 +2,7 @@ class Planet:
     AU = 1.495978707e11  # average distance of the earth in meters from sun astronomical unit
     G = 6.67430e-11  # Gravitational constant
     SCALE = 350 / AU
+    TIMESTEP = 60 * 60 * 24  # 1 DAY
 
     def __init__(
         self,
