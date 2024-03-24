@@ -1,3 +1,7 @@
+import pygame as pg
+from constants import WIDTH, HEIGHT
+
+
 class Planet:
     AU = 1.495978707e11  # average distance of the earth in meters from sun astronomical unit
     G = 6.67430e-11  # Gravitational constant
@@ -29,6 +33,11 @@ class Planet:
 
     def __str__(self):
         return f"<{self.name.upper()}>"
+
+    def draw(self, win):
+        x = self.x * self.SCALE + WIDTH / 2
+        y = self.y * self.SCALE + HEIGHT / 2
+        pg.draw.circle(win, self.color, (x, y), self.radius)
 
 
 def main():
