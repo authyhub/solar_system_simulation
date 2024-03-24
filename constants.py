@@ -1,11 +1,11 @@
 import pygame as pg
 
-WIDTH, HEIGHT = 1000, 1000
+WIDTH, HEIGHT = 2600, 2600
 AU = 1.495978707e11
 solar_system = [
     {
         "name": "Sun",
-        "radius": 60,  # 696340000,
+        "radius": 10,  # 696340000,
         "mass": 1.989e30,
         "au_from_sun": 0,
         "color": "#FFFF00",
@@ -14,7 +14,7 @@ solar_system = [
     },
     {
         "name": "Mercury",
-        "radius": 10,  # 2439700,
+        "radius": 5,  # 2439700,
         "mass": 3.285e23,
         "au_from_sun": 0.39,
         "color": "#BFBFBF",
@@ -23,7 +23,7 @@ solar_system = [
     },
     {
         "name": "Venus",
-        "radius": 16,  # 6051800,
+        "radius": 6,  # 6051800,
         "mass": 4.867e24,
         "au_from_sun": 0.72,
         "color": "#FFA500",
@@ -32,7 +32,7 @@ solar_system = [
     },
     {
         "name": "Earth",
-        "radius": 20,  # 6371000,
+        "radius": 10,  # 6371000,
         "mass": 5.972e24,
         "au_from_sun": 1,
         "color": "#0000FF",
@@ -41,11 +41,47 @@ solar_system = [
     },
     {
         "name": "Mars",
-        "radius": 14,  # 3389500,
+        "radius": 7,  # 3389500,
         "mass": 6.39e23,
         "au_from_sun": 1.52,
         "color": "#aa5000",
         "is_sun": False,
         "v_ave": 24077,
+    },
+    {
+        "name": "Jupiter",
+        "radius": 10,  # 69911000,
+        "mass": 1.898e27,
+        "au_from_sun": 5.2,
+        "color": "#FFD700",
+        "is_sun": False,
+        "v_ave": 13070,
+    },
+    {
+        "name": "Saturn",
+        "radius": 10,  # 58232000,
+        "mass": 5.683e26,
+        "au_from_sun": 9.58,
+        "color": "#C0C0C0",
+        "is_sun": False,
+        "v_ave": 9640,
+    },
+    {
+        "name": "Uranus",
+        "radius": 10,  # 25362000,
+        "mass": 8.681e25,
+        "au_from_sun": 19.22,
+        "color": "#00FFFF",
+        "is_sun": False,
+        "v_ave": 6810,
+    },
+    {
+        "name": "Neptune",
+        "radius": 10,  # 24622000,
+        "mass": 1.024e26,
+        "au_from_sun": 30.05,
+        "color": "#000080",
+        "is_sun": False,
+        "v_ave": 5430,
     },
 ]

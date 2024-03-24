@@ -9,7 +9,7 @@ FONT = pg.font.SysFont("comicsans", 20)
 class Planet:
     AU = AU  # average distance of the earth in meters from sun astronomical unit
     G = 6.67430e-11  # Gravitational constant
-    SCALE = 300 / AU
+    SCALE = 50 / AU
     TIMESTEP = 60 * 60 * 24  # 1 DAY
 
     def __init__(
