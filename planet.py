@@ -1,6 +1,7 @@
 class Planet:
     AU = 1.495978707e11  # average distance of the earth in meters from sun astronomical unit
-    G = 6.6e-11 # Gravitational constant 
+    G = 6.67430e-11  # Gravitational constant
+
     def __init__(
         self,
         name: str,
