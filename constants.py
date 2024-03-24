@@ -10,6 +10,7 @@ solar_system = [
         "au_from_sun": 0,
         "color": "#FFFF00",
         "is_sun": True,
+        "v_ave": 0,
     },
     {
         "name": "Mercury",
@@ -18,6 +19,7 @@ solar_system = [
         "au_from_sun": 0.39,
         "color": "#BFBFBF",
         "is_sun": False,
+        "v_ave": 47870,
     },
     {
         "name": "Venus",
@@ -26,6 +28,7 @@ solar_system = [
         "au_from_sun": 0.72,
         "color": "#FFA500",
         "is_sun": False,
+        "v_ave": 35020,
     },
     {
         "name": "Earth",
@@ -34,6 +37,7 @@ solar_system = [
         "au_from_sun": 1,
         "color": "#0000FF",
         "is_sun": False,
+        "v_ave": 29790,
     },
     {
         "name": "Mars",
@@ -42,5 +46,6 @@ solar_system = [
         "au_from_sun": 1.52,
         "color": "#aa5000",
         "is_sun": False,
+        "v_ave": 24077,
     },
 ]
